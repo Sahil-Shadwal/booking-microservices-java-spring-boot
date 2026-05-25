@@ -41,3 +41,7 @@ replay_pid*
 # OS-specific files
 .DS_Store
 Thumbs.db
+
+# Frontend / Node.js
+**/node_modules/
+**/dist/

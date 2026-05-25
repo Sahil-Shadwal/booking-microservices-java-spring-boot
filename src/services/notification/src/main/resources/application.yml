@@ -1,0 +1,55 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: notification
+
+  main:
+    allow-circular-references: false
+
+  mvc:
+    problemdetails:
+      enabled: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/notification_write
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    entity-packages-to-scan: buildingblocks.outboxprocessor
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        column_ordering_strategy: legacy
+        physical_naming_strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+    show-sql: false
+    properties.hibernate.format_sql: false
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/notification_read
+      database: notification_read
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    template:
+      exchange: booking-exchange
+      exchange-type: topic
+
+  otel:
+    collector:
+      service-name: notification
+      service-version: 1.0.0
+      endpoint: http://localhost:4317
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8080/realms/keycloak-realm/protocol/openid-connect/certs

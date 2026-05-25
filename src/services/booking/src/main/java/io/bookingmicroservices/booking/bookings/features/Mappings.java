@@ -42,6 +42,21 @@ public final class Mappings {
         );
     }
 
+    public static BookingDto toBookingDto(BookingDocument booking) {
+        return new BookingDto(
+                booking.getBookingId(),
+                booking.getPassengerInfo().getName(),
+                booking.getTrip().getFlightNumber(),
+                booking.getTrip().getAircraftId(),
+                booking.getTrip().getPrice(),
+                booking.getTrip().getFlightDate(),
+                booking.getTrip().getSeatNumber(),
+                booking.getTrip().getDepartureAirportId(),
+                booking.getTrip().getArriveAirportId(),
+                booking.getTrip().getDescription()
+        );
+    }
+
     public static CreateBookingCommand toCreateBookingCommand(CreateBookingRequestDto bookingRequestDto) {
         return new CreateBookingCommand(
                 UuidCreator.getTimeOrderedEpoch(),

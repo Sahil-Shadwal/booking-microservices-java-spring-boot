@@ -14,7 +14,13 @@ public class EventMapperImpl implements EventMapper {
     @Override
     public IntegrationEvent MapToIntegrationEvent(DomainEvent event) {
         return switch (event) {
-            case PassengerCreatedDomainEvent e -> new PassengerCreated(e.id());
+            case PassengerCreatedDomainEvent e -> new PassengerCreated(
+                e.id(),
+                e.name(),
+                e.passportNumber(),
+                e.passengerType().ordinal(),
+                e.age()
+            );
             default -> null;
         };
     }

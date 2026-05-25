@@ -14,7 +14,15 @@ public class EventMapperImpl implements EventMapper {
     @Override
     public IntegrationEvent MapToIntegrationEvent(DomainEvent event) {
         return switch (event) {
-            case BookingCreatedDomainEvent e -> new BookingCreated(e.id());
+            case BookingCreatedDomainEvent e -> new BookingCreated(
+                e.id(),
+                e.passengerInfo().getName(),
+                e.trip().getFlightNumber(),
+                e.trip().getSeatNumber(),
+                e.trip().getDescription(),
+                e.trip().getFlightDate(),
+                e.trip().getPrice()
+            );
             default -> null;
         };
     }

@@ -1,0 +1,7 @@
+io/bookingmicroservices/notification/data/mongo/documents/NotificationDocument.class
+io/bookingmicroservices/notification/listeners/BookingCreatedListener.class
+io/bookingmicroservices/notification/NotificationApplication.class
+io/bookingmicroservices/notification/controllers/NotificationController.class
+io/bookingmicroservices/notification/data/mongo/repositories/NotificationReadRepository.class
+io/bookingmicroservices/notification/data/mongo/documents/NotificationDocument$NotificationDocumentBuilder.class
+io/bookingmicroservices/notification/NotificationConfigurations.class

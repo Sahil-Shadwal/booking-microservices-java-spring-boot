@@ -38,8 +38,8 @@ spring:
     username: guest
     password: guest
     template:
-      exchange: booking
-      exchange-type: fanout
+      exchange: booking-exchange
+      exchange-type: topic
 
   otel:
     collector:

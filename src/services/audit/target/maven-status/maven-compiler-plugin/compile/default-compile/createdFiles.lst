@@ -1,0 +1,9 @@
+io/bookingmicroservices/audit/AuditApplication.class
+io/bookingmicroservices/audit/data/mongo/repositories/AuditLogRepository.class
+io/bookingmicroservices/audit/data/mongo/documents/AuditLogDocument.class
+io/bookingmicroservices/audit/listeners/FlightCreatedListener.class
+io/bookingmicroservices/audit/controllers/AuditLogController.class
+io/bookingmicroservices/audit/AuditConfigurations.class
+io/bookingmicroservices/audit/data/mongo/documents/AuditLogDocument$AuditLogDocumentBuilder.class
+io/bookingmicroservices/audit/listeners/PassengerCreatedListener.class
+io/bookingmicroservices/audit/listeners/BookingCreatedListener.class

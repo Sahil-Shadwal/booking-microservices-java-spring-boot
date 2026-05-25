@@ -10,6 +10,17 @@ spring:
 
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
       routes:
         - id: flight-service
           uri: http://localhost:8082
@@ -27,6 +38,18 @@ spring:
           uri: http://localhost:8084
           predicates:
             - Path=/api/{version}/booking/**
+          filters:
+            - TokenRelay
+        - id: notification-service
+          uri: http://localhost:8085
+          predicates:
+            - Path=/api/{version}/notification/**
+          filters:
+            - TokenRelay
+        - id: audit-service
+          uri: http://localhost:8086
+          predicates:
+            - Path=/api/{version}/audit-log/**
           filters:
             - TokenRelay
 

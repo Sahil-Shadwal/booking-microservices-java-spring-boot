@@ -1,0 +1,63 @@
+{
+  "id": "keycloak-realm",
+  "realm": "keycloak-realm",
+  "enabled": true,
+  "roles": {
+    "realm": [
+      {
+        "name": "ADMIN",
+        "description": "Administrator Role"
+      },
+      {
+        "name": "USER",
+        "description": "User Role"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "booking-client-credentials",
+      "name": "Booking Client Credentials",
+      "secret": "secret",
+      "enabled": true,
+      "publicClient": false,
+      "serviceAccountsEnabled": true,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "redirectUris": [
+        "*"
+      ],
+      "webOrigins": [
+        "*"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "username": "service-account-booking-client-credentials",
+      "enabled": true,
+      "serviceAccountClientId": "booking-client-credentials",
+      "realmRoles": [
+        "ADMIN"
+      ]
+    },
+    {
+      "username": "admin",
+      "enabled": true,
+      "email": "admin@booking.com",
+      "firstName": "Admin",
+      "lastName": "User",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "ADMIN"
+      ]
+    }
+  ]
+}
